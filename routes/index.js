@@ -1,5 +1,9 @@
 var express = require('express');
-var router = express.Router();
+let db = require('../db/config');
+
+db(process.env.MONGO_STRING, 'elegentpurse')
+
+var router = express.Router(); 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

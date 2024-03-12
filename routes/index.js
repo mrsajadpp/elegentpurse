@@ -6,7 +6,8 @@ let db = connectToMongoDB(process.env.MONGO_STRING, 'elegentpurse');
 var router = express.Router(); 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
+  await db.collection('USER').insertOne({ name: "Sajad" });
   res.json(db) 
 });
 

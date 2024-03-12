@@ -1,3 +1,3 @@
-let db = require('./config');
+let connectToMongoDB = require('./config');
 
-db(process.env.MONGO_STRING, 'elegentpurse')
+let db = connectToMongoDB(process.env.MONGO_STRING, 'elegentpurse');

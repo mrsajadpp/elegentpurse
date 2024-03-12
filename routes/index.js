@@ -1,7 +1,7 @@
 var express = require('express');
 let db = require('../db/config');
 
-db(process.env.MONGO_STRING, 'elegentpurse')
+db = db(process.env.MONGO_STRING, 'elegentpurse')
 
 var router = express.Router(); 
 

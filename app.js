@@ -3,7 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-let db = require('./db/config')
+let handlebars = require('express-handlebars');
+let session = require('express-session');
+let fileUpload = require('express-fileupload');
+let favicon = require("serve-favicon");
+let db = require('./db/config');
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
@@ -12,6 +16,9 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+// app.use(favicon(path.join(__dirname, 'public', '/images/favicon.png')));
+app.engine('hbs', handlebars.engine({ extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/', partialsDir: __dirname + '/views/partials/' }));
+app.use(session({ secret:"@tricbskt@#]$" }));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));

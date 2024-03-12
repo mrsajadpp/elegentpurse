@@ -1,30 +1,36 @@
-let MongoClient = require('mongodb').MongoClient;
-let state = {
-  db: false
-}
-function connect(done) {
+const mongoose = require('mongoose');
+
+let db;
+
+async function connect() {
   try {
-    let url = process.env.MONGO_STRING
-    let dbname = 'elegentpurse';
-    MongoClient.connect(url, (err, data) => {
-      if (err) return done(err);
-      state.db = data.db(dbname);
-    });
-    done();
-  } catch (err) {
-    console.error(err)
-  }
-}
-function get() {
-  return state.db;
-}
-connect((err) => {
-  if (err) {
-    console.log('Database connection error : ' + err);
-  } else {
+    const url = process.env.MONGO_STRING;
+    const dbname = 'elegentpurse';
+    await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+    db = mongoose.connection.db;
     console.log('Database connected!');
+  } catch (err) {
+    console.error('Database connection error:', err);
+    throw err;
   }
-});
+}
+
+function get() {
+  if (!db) {
+    throw new Error('Database connection not established.');
+  }
+  return db;
+}
+
+(async () => {
+  try {
+    await connect();
+  } catch (err) {
+    console.error('Failed to connect to the database:', err);
+    process.exit(1);
+  }
+})();
+
 module.exports = {
   get
 };

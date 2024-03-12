@@ -1,14 +1,18 @@
 var express = require('express');
-let connectToMongoDB = require('../db/config');
+let db = require('../db/config')
 
-let db = connectToMongoDB();
-
-var router = express.Router(); 
+var router = express.Router();
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-  await db.collection('USER').insertOne({ name: "Sajad" });
-  res.json(db) 
+router.get('/', async function (req, res, next) {
+  try {
+    const userCollection = db.get().collection('USER');
+    await userCollection.insertOne({ name: "Sajad" });
+    res.json({ message: "User inserted successfully." });
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = router;

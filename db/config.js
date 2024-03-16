@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 
 let db;
 
-async function connect() {
+async function connect(url) {
   try {
-    const url = process.env.MONGO_STRING;
     const dbname = 'elegentpurse';
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
     db = mongoose.connection.db;
@@ -22,15 +21,16 @@ function get() {
   return db;
 }
 
-(async () => {
-  try {
-    await connect();
-  } catch (err) {
-    console.error('Failed to connect to the database:', err);
-    process.exit(1);
-  }
-})();
+// (async () => {
+//   try {
+//     await connect();
+//   } catch (err) {
+//     console.error('Failed to connect to the database:', err);
+//     process.exit(1);
+//   }
+// })();
 
 module.exports = {
+  connect,
   get
 };

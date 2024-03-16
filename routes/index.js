@@ -3,7 +3,7 @@ let db = require('../db/config')
 
 var router = express.Router();
 
-/* GET home page. */
+// GET Home Page
 router.get('/', async function (req, res, next) {
   try {
     const userCollection = db.get().collection('USER');

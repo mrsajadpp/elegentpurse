@@ -9,6 +9,8 @@ let fileUpload = require('express-fileupload');
 let favicon = require("serve-favicon");
 let db = require('./db/config');
 
+var userRouter = require('./routes/user');
+var productRouter = require('./routes/product');
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var authRouter = require('./routes/authorised');
@@ -42,6 +44,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/user', userRouter);
+app.use('/api/product', productRouter);
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/user', authRouter)

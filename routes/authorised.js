@@ -26,4 +26,14 @@ router.get('/cart', isAuthorised, async function (req, res, next) {
     }
 });
 
+// GET Profile Page
+router.get('/profile', isAuthorised, async function (req, res, next) {
+    try {
+        res.json({ message: "Cart Page" });
+    } catch (err) {
+        console.error("Error inserting user:", err);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
 module.exports = router;

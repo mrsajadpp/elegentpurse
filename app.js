@@ -15,17 +15,17 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var authRouter = require('./routes/authorised');
 
-var app = express(); 
+var app = express();
 
 // Function to connect to the database
 async function connectToDatabase() {
   try {
-      await db.connect(process.env.MONGO_STRING);
-      console.log("Database connection established.");
+    await db.connect(process.env.MONGO_STRING);
+    console.log("Database connection established.");
   } catch (err) {
-      console.error("Error connecting to database:", err);
-      // Handle connection error gracefully
-      throw err;
+    console.error("Error connecting to database:", err);
+    // Handle connection error gracefully
+    throw err;
   }
 }
 
@@ -35,7 +35,7 @@ connectToDatabase();
 app.set('views', path.join(__dirname, 'views'));
 app.use(favicon(path.join(__dirname, 'public', '/images/favicon.png')));
 app.engine('hbs', handlebars.engine({ extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/', partialsDir: __dirname + '/views/partials/' }));
-app.use(session({ secret:"@tricbskt@#]$" }));
+app.use(session({ secret: "@tricbskt@#]$" }));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
@@ -51,12 +51,12 @@ app.use('/admin', adminRouter);
 app.use('/user', authRouter)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

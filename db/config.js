@@ -7,7 +7,6 @@ async function connect(url) {
     const dbname = 'elegentpurse';
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
     db = mongoose.connection.db;
-    console.log('Database connected!');
   } catch (err) {
     console.error('Database connection error:', err);
     throw err;

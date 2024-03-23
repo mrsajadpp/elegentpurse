@@ -6,9 +6,17 @@ var router = express.Router();
 // GET Home Page
 router.get('/', async function (req, res, next) {
   try {
-    const userCollection = db.get().collection('USER');
-    await userCollection.insertOne({ name: "Sajad" });
-    res.json({ message: "User inserted successfully." });
+    res.render('user/index', { title: 'Elegentpurse' })
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// GET Product Page
+router.get('/product/:prodId', async function (req, res, next) {
+  try {
+    res.render('user/product', { title: 'Elegentpurse' })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -18,7 +26,7 @@ router.get('/', async function (req, res, next) {
 // GET Loggin Page
 router.get('/auth/login', async function (req, res, next) {
   try {
-    res.json({ message: "Login Page." });
+    res.render('user/login', { title: 'Login - Elegentpurse' })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -28,7 +36,7 @@ router.get('/auth/login', async function (req, res, next) {
 // GET SignUp Page
 router.get('/auth/signup', async function (req, res, next) {
   try {
-    res.json({ message: "SignUp Page." });
+    res.render('user/signup', { title: 'SignUp - Elegentpurse' })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

@@ -9,12 +9,6 @@ let fileUpload = require('express-fileupload');
 let favicon = require("serve-favicon");
 let db = require('./db/config');
 
-var userRouter = require('./routes/user');
-var productRouter = require('./routes/product');
-var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/admin');
-var authRouter = require('./routes/authorised');
-
 var app = express();
 
 // Function to connect to the database
@@ -22,14 +16,26 @@ async function connectToDatabase() {
   try {
     await db.connect(process.env.MONGO_STRING);
     console.log("Database connection established.");
+    var userRouter = require('./routes/user');
+    var productRouter = require('./routes/product');
+    var indexRouter = require('./routes/index');
+    var adminRouter = require('./routes/admin');
+    var authRouter = require('./routes/authorised');
+
+    return { userRouter, productRouter, indexRouter, adminRouter, authRouter };
   } catch (err) {
     console.error("Error connecting to database:", err);
-    // Handle connection error gracefully
-    throw err;
+    var userRouter = require('./routes/user');
+    var productRouter = require('./routes/product');
+    var indexRouter = require('./routes/index');
+    var adminRouter = require('./routes/admin');
+    var authRouter = require('./routes/authorised');
+
+    return { userRouter, productRouter, indexRouter, adminRouter, authRouter };
   }
 }
 
-connectToDatabase();
+let { userRouter, productRouter, indexRouter, adminRouter, authRouter } = connectToDatabase();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

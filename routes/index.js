@@ -6,7 +6,7 @@ var router = express.Router();
 // GET Home Page
 router.get('/', async function (req, res, next) {
   try {
-    res.render('user/index', { title: 'Elegentpurse' })
+    res.render('user/index', { title: 'Elegentpurse', admin: false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

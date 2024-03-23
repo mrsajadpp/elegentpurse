@@ -50,7 +50,7 @@ router.get('/product/add', function (req, res, next) {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
+ 
 // GET Orders Page
 router.get('/orders', function (req, res, next) {
   try {

@@ -40,7 +40,7 @@ router.post('/auth/signup', async function (req, res, next) {
           otp_expiry: new Date(Date.now() + 5 * 60 * 1000) // OTP expiry after 5 minutes
         };
 
-        await userCollection.insertOne(newUser);
+        await userCollection.updateOne({ email: req.body.email }, { $set: newUser });
 
         req.session.user = newUser;
         res.render('user/otp', { title: 'Verify OTP - Elegentpurse' })

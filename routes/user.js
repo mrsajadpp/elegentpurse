@@ -170,7 +170,7 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
 
     await addCollection.insertOne(address);
 
-    res.redirect('/';)
+    res.redirect('/');
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

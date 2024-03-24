@@ -5,7 +5,6 @@ var router = express.Router();
 
 const isNotAuthorised = (req, res, next) => {
   try {
-    const userCollection = db.get().collection('USER');
     if (req.session.user) {
       if (req.session.user.status) {
         res.redirect('/');

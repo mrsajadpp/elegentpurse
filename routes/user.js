@@ -4,35 +4,25 @@ var router = express.Router();
 let db = require('../db/config');
 let mail = require('../mail/config');
 
-// router.get('/auth/otp', async function (req, res, next) {
-//   try {
-//     const userCollection = db.get().collection('USER');
-//     const userExist = await userCollection.findOne({ email: req.body.email, status: false });
-//     console.log(userExist);
+router.post('/auth/login', async function (req, res, next) {
+  try {
+    const userCollection = db.get().collection('USER');
+    const userExist = await userCollection.findOne({ email: req.body.email, status: true });
 
-//     if (userExist && req.body.otp == userExist.otp) {
-//       // Create new user document
-//       const newUser = {
-//         first_name: userExist.first_name,
-//         last_name: userExist.last_name,
-//         email: userExist.email,
-//         phone: userExist.phone,
-//         password: userExist.password,
-//         status: true,
-//         timestamp: new Date()
-//       };
-
-//       await await userCollection.updateOne({ email: userExist.email }, { $set: newUser });
-
-//       req.session.user = newUser;
-//       res.redirect('/');
-//     }
-
-//   } catch (err) {
-//     console.error("Error inserting user:", err);
-//     res.status(500).json({ error: "Internal server error" });
-//   }
-// });
+    if (userExist) {
+      let isCorrect = await crypash.check('sha256', req.body.password, userExist.password);
+      if (isCorrect) {
+        req.session.user = userExist;
+        res.redirect('/');
+      } else {
+        res.redirect('/auth/login');
+      }
+    }
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 router.post('/auth/signup', async function (req, res, next) {
   try {

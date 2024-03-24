@@ -6,7 +6,6 @@ let mail = require('../mail/config');
 
 const isAuthorised = (req, res, next) => {
   try {
-    const userCollection = db.get().collection('USER');
     if (!req.session.user) {
       res.redirect('/auth/login');
     } else {
@@ -157,7 +156,7 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
     console.log(userExist);
     const address = {
       name: `${userExist.first_name} ${userExist.lastt_name}`,
-      user_id: req.session._id,
+      user_id: req.session.user._id,
       address_line_one: req.body.address_line_one,
       address_line_two: req.body.address_line_two,
       city: req.body.city,

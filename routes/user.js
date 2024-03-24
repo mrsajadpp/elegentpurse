@@ -4,6 +4,23 @@ var router = express.Router();
 let db = require('../db/config');
 let mail = require('../mail/config');
 
+const isAuthorised = (req, res, next) => {
+  try {
+    const userCollection = db.get().collection('USER');
+    if (!req.session.user) {
+      res.redirect('/auth/login');
+    } else {
+      if (req.session.user.status) {
+        next();
+      } else {
+        res.redirect('/auth/login');
+      }
+    }
+  } catch (error) {
+
+  }
+}
+
 router.post('/auth/login', async function (req, res, next) {
   try {
     const userCollection = db.get().collection('USER');
@@ -121,9 +138,38 @@ router.post('/auth/signup', async function (req, res, next) {
         await await userCollection.updateOne({ email: userExist.email }, { $set: newUser });
 
         req.session.user = newUser;
-        res.redirect('/');
+        res.redirect('/auth/address');
       }
     }
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.post('/auth/address', isAuthorised, async function (req, res, next) {
+  try {
+    const userCollection = db.get().collection('USER');
+    const addCollection = db.get().collection('ADDRESS');
+    const userExist = await userCollection.findOne({ email: req.session.user.email, status: true });
+    console.log(req.body); 
+    console.log(req.session.user);
+    console.log(userExist);
+    const address = {
+      name: `${userExist.first_name} ${userExist.lastt_name}`,
+      user_id: req.session._id,
+      address_line_one: req.body.address_line_one,
+      address_line_two: req.body.address_line_two,
+      city: req.body.city,
+      state: req.body.state,
+      land_mark: req.body.landmark,
+      zip_code: req.body.zip_code,
+      gender: req.body.gender
+    }
+
+    console.log(address);
+
+    await addCollection.insertOne(address);
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

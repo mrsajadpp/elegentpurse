@@ -15,14 +15,14 @@ const isNotAuthorised = (req, res, next) => {
       next();
     }
   } catch (error) {
-
+    console.error("Error:", err);
   }
 }
 
 // GET Home Page
 router.get('/', async function (req, res, next) {
   try {
-    res.render('user/index', { title: 'Elegentpurse', admin: false })
+    res.render('user/index', { title: 'Elegentpurse', admin: false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -32,7 +32,7 @@ router.get('/', async function (req, res, next) {
 // GET Product Page
 router.get('/product/:prodId', async function (req, res, next) {
   try {
-    res.render('user/product', { title: 'Elegentpurse' })
+    res.render('user/product', { title: 'Elegentpurse', user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -53,16 +53,6 @@ router.get('/auth/login', isNotAuthorised, async function (req, res, next) {
 router.get('/auth/signup', isNotAuthorised, async function (req, res, next) {
   try {
     res.render('user/signup', { title: 'SignUp - Elegentpurse' })
-  } catch (err) {
-    console.error("Error inserting user:", err);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// GET SignUp Address Page
-router.get('/auth/signup/address', isNotAuthorised, async function (req, res, next) {
-  try {
-    res.render('user/signup_two', { title: 'SignUp - Elegentpurse' })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

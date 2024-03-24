@@ -62,4 +62,14 @@ router.get('/checkout', isAuthorised, async function (req, res, next) {
       }
 });
 
+// GET SignUp Address Page
+router.get('/auth/address', isAuthorised, async function (req, res, next) {
+    try {
+      res.render('user/signup_two', { title: 'SignUp - Elegentpurse' })
+    } catch (err) {
+      console.error("Error inserting user:", err);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
 module.exports = router;

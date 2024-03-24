@@ -7,16 +7,16 @@
           <div class="card-body p-5 text-center">
 
             <div class="mb-md-5 mt-md-4 ">
-              <a href="./Home.html">
+              <a href="/">
                 <img src="/images/logowrk.png" width="250px" alt="">
               </a>
 
 
-              <form id="otpForm">
+              <form id="otpForm" accept="/api/user/auth/signup" method="post">
                 <div class="form-group mt-4">
-                  <input type="password" id="otp" class="form-control" placeholder="Enter OTP" required>
+                  <input type="number" id="otp" name="otp" class="form-control" placeholder="Enter OTP" required>
                 </div>
-                <button type="submit" class="btn btn-dark mt-4" onclick="Login()">Verify OTP</button>
+                <button type="submit" class="btn btn-dark mt-4">Verify OTP</button>
               </form>
 
 
@@ -26,8 +26,7 @@
             </div>
 
             <div>
-              <p class="mb-0"><a href="" class=" fw-bold">Resend OTP</a>
-              </p>
+              <p class="mb-0">If you haven't received your OTP, please wait for five minutes before trying again. You can also try refreshing this page to ensure smooth processing.</p>
             </div>
 
           </div>

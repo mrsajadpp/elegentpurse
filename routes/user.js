@@ -11,12 +11,21 @@ router.get('/', function (req, res, next) {
 router.post('/auth/signup', async function (req, res, next) {
   try {
     const userCollection = db.get().collection('USER');
-    const userExist = userCollection.findOne({ email: req.body.email });
+    const userExist = userCollection.findOne({ email: req.body.email, status: true });
 
     if (!userExist) {
       // Generate 6-digit OTP
       const otp = Math.floor(100000 + Math.random() * 900000);
       const hashedPassword = crypash.hash('sha256', req.body.password);
+
+      // Check if OTP expired
+      if (userExist && userExist.otp_expiry && userExist.otp_expiry > new Date()) {
+        otp = Math.floor(100000 + Math.random() * 900000); // Generate new OTP
+      }
+
+      if (userExist.otp_expiry > new Date()) {
+        otp = userExist.otp;
+      }
 
       // Create new user document
       const newUser = {

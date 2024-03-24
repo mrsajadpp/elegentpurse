@@ -1,5 +1,5 @@
 var express = require('express');
-let db = require('../db/config')
+let db = require('../db/config');
 
 var router = express.Router();
 
@@ -37,6 +37,16 @@ router.get('/auth/login', async function (req, res, next) {
 router.get('/auth/signup', async function (req, res, next) {
   try {
     res.render('user/signup', { title: 'SignUp - Elegentpurse' })
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// GET SignUp Address Page
+router.get('/auth/signup/address', async function (req, res, next) {
+  try {
+    res.render('user/signup_two', { title: 'SignUp - Elegentpurse' })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

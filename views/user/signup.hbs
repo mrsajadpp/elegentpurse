@@ -6,7 +6,7 @@
           style="border-radius: 0; border: px solid black; background: white; box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.228);">
           <div class="card-body p-5 text-center">
 
-            <div class="mb-md-5 mt-md-4 pb-5">
+            <form action="/api/user/auth/signup" method="post" class="mb-md-5 mt-md-4 pb-5">
               <img src="/images/logowrk.png" width="250px" alt="">
 
 
@@ -23,11 +23,13 @@
 
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" name="email" class="form-control form-control" placeholder="Enter your Email" required />
+                <input type="email" id="typeEmailX" name="email" class="form-control form-control"
+                  placeholder="Enter your Email" required />
 
               </div>
               <div class="form-outline form-white mb-4">
-                <input type="tel" class="form-control form-control" name="phone" placeholder="Enter your Phone Number" required />
+                <input type="tel" class="form-control form-control" name="phone" placeholder="Enter your Phone Number"
+                  required />
               </div>
 
               <div class="form-outline form-white mb-4">
@@ -36,7 +38,7 @@
               </div>
 
               <div class="form-outline form-white mb-4 text-start">
-                <input class="form-check-input " type="checkbox" value="" name="iAgree" id="iAgree" required style="">
+                <input class="form-check-input " type="checkbox" value="true" name="i_agree" id="iAgree" required style="">
                 <label class="form-check-label " for="iAgree">
                   I agree to the <a href="#!" class=" text-decoration-none" style="color: #6f4e37;">terms and
                     conditions</a>
@@ -45,13 +47,13 @@
 
 
 
-              <button class="btn btn-dark px-5 btn-lg text-uppercase fw-semibold" type="button" data-bs-toggle="modal"
+              <button class="btn btn-dark px-5 btn-lg text-uppercase fw-semibold" type="submit" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Continue
               </button>
 
               <!-- Modal -->
-              <div class="modal" id="exampleModal" tabindex="-1">
+              {{!-- <div class="modal" id="exampleModal" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -59,7 +61,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form id="otpForm">
+                      <form id="otpForm" action="/api/user/auth/signup/otp" method="post">
                         <div class="form-group">
                           <input type="password" id="otp" class="form-control" placeholder="Enter OTP" required>
                         </div>
@@ -72,16 +74,16 @@
                         </div> -->
                   </div>
                 </div>
-              </div>
+              </div> --}}
 
 
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
+              {{!-- <div class="d-flex justify-content-center text-center mt-4 pt-1">
                 <a href="#!" class="text-black"><i class="fab fa-facebook-f fa-lg"></i></a>
                 <a href="#!" class="text-black"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
                 <a href="#!" class="text-black"><i class="fab fa-google fa-lg"></i></a>
-              </div>
+              </div> --}}
 
-            </div>
+            </form>
 
             <div>
               <p class="mb-0">Already have an account? <a href="/auth/login" class=" fw-bold">Login</a>
@@ -237,27 +239,6 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function () {
-    // Submit OTP form
-    $('#otpForm').submit(function (e) {
-      e.preventDefault(); // Prevent default form submission
-
-      var enteredOTP = $('#otp').val(); // Get the entered OTP
-
-      // Perform OTP verification here (for demonstration, let's assume it's valid)
-      var isOTPValid = true;
-
-      if (isOTPValid) {
-        // Redirect to the next page (replace 'next-page.html' with the actual URL)
-        window.location.href = '/views/User/signup2.html';
-      } else {
-        // OTP is not valid, show error message or take appropriate action
-        alert('Invalid OTP. Please try again.');
-      }
-    });
-  });
-</script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

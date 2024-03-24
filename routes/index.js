@@ -3,6 +3,23 @@ let db = require('../db/config');
 
 var router = express.Router();
 
+const isNotAuthorised = (req, res, next) => {
+  try {
+    const userCollection = db.get().collection('USER');
+    if (req.session.user) {
+      if (req.session.user.status) {
+        res.redirect('/');
+      } else {
+        next();
+      }
+    } else {
+      next();
+    }
+  } catch (error) {
+
+  }
+}
+
 // GET Home Page
 router.get('/', async function (req, res, next) {
   try {
@@ -24,7 +41,7 @@ router.get('/product/:prodId', async function (req, res, next) {
 });
 
 // GET Loggin Page
-router.get('/auth/login', async function (req, res, next) {
+router.get('/auth/login', isNotAuthorised, async function (req, res, next) {
   try {
     res.render('user/login', { title: 'Login - Elegentpurse' })
   } catch (err) {
@@ -34,7 +51,7 @@ router.get('/auth/login', async function (req, res, next) {
 });
 
 // GET SignUp Page
-router.get('/auth/signup', async function (req, res, next) {
+router.get('/auth/signup', isNotAuthorised, async function (req, res, next) {
   try {
     res.render('user/signup', { title: 'SignUp - Elegentpurse' })
   } catch (err) {
@@ -44,7 +61,7 @@ router.get('/auth/signup', async function (req, res, next) {
 });
 
 // GET SignUp Address Page
-router.get('/auth/signup/address', async function (req, res, next) {
+router.get('/auth/signup/address', isNotAuthorised, async function (req, res, next) {
   try {
     res.render('user/signup_two', { title: 'SignUp - Elegentpurse' })
   } catch (err) {

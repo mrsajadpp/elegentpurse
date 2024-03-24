@@ -137,7 +137,7 @@ router.post('/auth/signup', async function (req, res, next) {
         await await userCollection.updateOne({ email: userExist.email }, { $set: newUser });
 
         req.session.user = newUser;
-        res.redirect('/auth/address');
+        res.redirect('/user/auth/address');
       }
     }
   } catch (err) {
@@ -169,6 +169,8 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
     console.log(address);
 
     await addCollection.insertOne(address);
+
+    res.redirect('/';)
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

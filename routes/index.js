@@ -22,7 +22,7 @@ const isNotAuthorised = (req, res, next) => {
 // GET Home Page
 router.get('/', async function (req, res, next) {
   try {
-    res.render('user/index', { title: 'Elegentpurse', admin: false, user: req.session.user ? req.session.user : false })
+    res.render('user/index', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -32,7 +32,7 @@ router.get('/', async function (req, res, next) {
 // GET Product Page
 router.get('/product/:prodId', async function (req, res, next) {
   try {
-    res.render('user/product', { title: 'Elegentpurse', user: req.session.user ? req.session.user : false })
+    res.render('user/product', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -42,7 +42,7 @@ router.get('/product/:prodId', async function (req, res, next) {
 // GET Loggin Page
 router.get('/auth/login', isNotAuthorised, async function (req, res, next) {
   try {
-    res.render('user/login', { title: 'Login - Elegentpurse' })
+    res.render('user/login', { title: 'Login - Elegentpurse', auth: true })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -52,7 +52,7 @@ router.get('/auth/login', isNotAuthorised, async function (req, res, next) {
 // GET SignUp Page
 router.get('/auth/signup', isNotAuthorised, async function (req, res, next) {
   try {
-    res.render('user/signup', { title: 'SignUp - Elegentpurse' })
+    res.render('user/signup', { title: 'SignUp - Elegentpurse', auth: true })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

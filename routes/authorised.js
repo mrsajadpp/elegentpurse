@@ -23,7 +23,7 @@ const isAuthorised = (req, res, next) => {
 // GET Cart Page
 router.get('/cart', isAuthorised, async function (req, res, next) {
   try {
-    res.render('user/cart', { title: 'Cart - Elegentpurse' })
+    res.render('user/cart', { title: 'Cart - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -37,7 +37,7 @@ router.get('/profile', isAuthorised, async function (req, res, next) {
     const addCollection = db.get().collection('ADDRESS');
     const userExist = await userCollection.findOne({ email: req.session.user.email, status: true });
     const adressExist = await addCollection.findOne({ user_id: userExist._id });
-    res.render('user/profile', { title: 'Profile - Elegentpurse', user: userExist, address: adressExist })
+    res.render('user/profile', { title: 'Profile - Elegentpurse', user: userExist, address: adressExist, admin: req.session.user ? req.session.user.admin : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -48,7 +48,7 @@ router.get('/profile', isAuthorised, async function (req, res, next) {
 // GET Edit Profile Page
 router.get('/profile/edit', isAuthorised, async function (req, res, next) {
   try {
-    res.render('user/editprofile', { title: 'Edit Profile - Elegentpurse' })
+    res.render('user/editprofile', { title: 'Edit Profile - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -59,7 +59,7 @@ router.get('/profile/edit', isAuthorised, async function (req, res, next) {
 // GET Profile Page
 router.get('/checkout', isAuthorised, async function (req, res, next) {
   try {
-    res.render('user/checkout', { title: 'Checkout - Elegentpurse' })
+    res.render('user/checkout', { title: 'Checkout - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -69,7 +69,7 @@ router.get('/checkout', isAuthorised, async function (req, res, next) {
 // GET SignUp Address Page
 router.get('/auth/address', isAuthorised, async function (req, res, next) {
   try {
-    res.render('user/signup_two', { title: 'SignUp - Elegentpurse' })
+    res.render('user/signup_two', { title: 'Address - Elegentpurse', auth: true, admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

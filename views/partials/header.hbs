@@ -185,11 +185,26 @@
                         ORDERS
                     </a>
                 </li>
+                {{#if user.admin}}
+                <li>
+                    <a href="/admin/">
+                        ADMIN
+                    </a>
+                </li>
+                {{/if}}
+                {{#if user}}
                 <li>
                     <a href="/user/profile">
                         PROFILE
                     </a>
                 </li>
+                {{else}}
+                <li class="login_btn">
+                    <a href="/auth/login" style="color: #fff;">
+                        LOGIN
+                    </a>
+                </li>
+                {{/if}}
             </ul>
         </nav>
     </div>

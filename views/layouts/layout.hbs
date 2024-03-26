@@ -8,7 +8,8 @@
   <meta name="keywords" content="{{keywords}}">
   <meta name="author" content="{{author}}">
   <title>{{title}}</title>
-  {{!-- <link rel="stylesheet" href="/stylesheets/style.css"> --}}
+  {{!--
+  <link rel="stylesheet" href="/stylesheets/style.css"> --}}
   {{#if style}}
   <link rel="stylesheet" href="/stylesheets/{{style}}.css">
   {{/if}}
@@ -71,9 +72,12 @@
 </head>
 
 <body>
-  {{>header}}
+  {{#if auth}}
+  {{else}}
+  {{> header user=user}}
+  {{/if}}
   {{{body}}}
-  {{>footer}}
+  {{> footer}}
 </body>
 
 </html>

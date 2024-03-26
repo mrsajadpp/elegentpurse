@@ -9,7 +9,7 @@ module.exports = {
       secure: false,
       auth: {
         user: 'thintryin@gmail.com',
-        pass: 'mghs tals opjh gnrt'
+        pass: process.env.MAIL_PASS
       }
     });
 

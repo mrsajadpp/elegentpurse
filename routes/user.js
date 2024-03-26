@@ -134,7 +134,7 @@ router.post('/auth/signup', async function (req, res, next) {
           timestamp: new Date()
         };
 
-        await await userCollection.updateOne({ email: userExist.email }, { $set: newUser });
+        await userCollection.updateOne({ email: userExist.email }, { $set: newUser });
 
         req.session.user = newUser;
         res.redirect('/user/auth/address');
@@ -151,12 +151,13 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
     const userCollection = db.get().collection('USER');
     const addCollection = db.get().collection('ADDRESS');
     const userExist = await userCollection.findOne({ email: req.session.user.email, status: true });
-    console.log(req.body); 
+    const adressExist = await addCollection.findOne({ user_id: userExist._id });
+    console.log(req.body);
     console.log(req.session.user);
-    console.log(userExist);
+    console.log(userExist._id);
     const address = {
-      name: `${userExist.first_name} ${userExist.lastt_name}`,
-      user_id: req.session.user._id,
+      name: `${userExist.first_name} ${userExist.last_name}`,
+      user_id: userExist._id,
       address_line_one: req.body.address_line_one,
       address_line_two: req.body.address_line_two,
       city: req.body.city,
@@ -168,7 +169,11 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
 
     console.log(address);
 
-    await addCollection.insertOne(address);
+    if (adressExist) {
+      addCollection.updateOne({ email: userExist.email }, { $set: address });
+    } else {
+      await addCollection.insertOne(address);
+    }
 
     res.redirect('/');
   } catch (err) {

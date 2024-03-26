@@ -150,19 +150,18 @@
         <hr>
       </div>
       <div class="mx-5 px-5 mb-5 poppins-medium ">
-        <h6 class="py-2">First Name : Ann</h6>
-        <h6 class="py-2">Last Name : John</h6>
-        <h6 class="py-2">Email ID : ann@gmail.com</h6>
-        <h6 class="py-2">Mobile Number : 08235659974</h6>
-        <h6 class="py-2">Gender : Female</h6>
-        <h6 class="py-2">DOB : 12-12-12</h6>
-        <h6 class="py-2">Address : Ann House, MG Road, Kozhikode, 673003</h6>
+        <h6 class="py-2">First Name : {{user.first_name}}</h6>
+        <h6 class="py-2">Last Name : {{user.last_name}}</h6>
+        <h6 class="py-2">Email ID : {{user.email}}</h6>
+        <h6 class="py-2">Mobile Number : {{user.phone}}</h6>
+        <h6 class="py-2">Gender : {{address.gender}}</h6>
+        <h6 class="py-2">Address : {{address.address_line_one}}, {{address.address_line_two}}, {{address.zip_code}}.</h6>
         <a href="/profile/edit" class="btn btn-dark px-4 mt-4" style="border-radius: 0;">EDIT PROFILE</a>
 
 
       </div>
-      <hr>
-      <div class="mx-5 px-4 mb-1 poppins-medium ">
+      {{!-- <hr> --}}
+      {{!-- <div class="mx-5 px-4 mb-1 poppins-medium ">
         <h5>Change Password</h5>
       </div>
       <div class="mx-5 px-5 mb-5 poppins-medium">
@@ -204,7 +203,7 @@
           </div>
         </div>
 
-      </div>
+      </div> --}}
 
 
 

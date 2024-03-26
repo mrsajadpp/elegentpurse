@@ -8,7 +8,7 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 999;
+    z-index: 998;
     background: #fff;
 }
 
@@ -71,7 +71,7 @@
     background-color: rgba(146, 146, 146, 0.61);
     backdrop-filter: blur(5px);
     padding-top: 30px;
-    z-index: 998;
+    z-index: 997;
 }
 
 .search_area .input_box {
@@ -106,6 +106,86 @@
     border: none;
     height: 100%;
     background-color: #000;
+}
+
+/* Menu area */
+.menu_container {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: start;
+    justify-content: start;
+    background-color: rgba(146, 146, 146, 0.61);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0px;
+    z-index: 999;
+}
+
+.menu_container .menu_area{
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: #fff;
+}
+
+.menu_container .menu_area .menu_bar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.menu_container .menu_area .menu_bar button {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+}
+
+.menu_container .menu_area .menu_items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.menu_container .menu_area .menu_items .menu_item {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 40px;
+}
+
+.menu_container .menu_area .menu_items .menu_item a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+}
+
+.menu_container .menu_area .menu_items .menu_item a span {
+    margin-left: 10px;
+}
+
+.menu_container .menu_area .menu_items .menu_item a .logout {
+    color: red;
+}
+
+.menu_container .menu_area .menu_items hr {
+    width: 100%;
 }
 
 .display {

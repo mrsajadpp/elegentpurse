@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/stylesheets/header.css">
 {{!-- Mobile Header --}}
-<header id="header" class="mobile_header">
+<header id="header" class="mobile_header" style="display: none;">
     <div class="left">
         <button onclick="menu()">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -29,7 +29,7 @@
 <div class="search_area">
     <div class="input_box">
         <form action="/search" method="get">
-            <input type="text" name="query" placeholder="Search" id="query">
+            <input type="text" name="query" placeholder="Search" id="query" required>
             <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     style="fill: #fff;transform: ;msFilter:;">
@@ -54,7 +54,8 @@
                 </svg>
             </button>
         </div>
-        {{!-- <hr style="width: 100%; margin: 0px;"> --}}
+        {{!--
+        <hr style="width: 100%; margin: 0px;"> --}}
         <div class="menu_items">
             <div class="menu_item">
                 <a href="/">
@@ -138,6 +139,62 @@
     </div>
 </div>
 
+{{!-- Desktop Header --}}
+<header id="header" class="desktop_header">
+    <div class="hleft">
+        <a href="/">
+            <img src="/images/logowrk.png" alt="Elegentpurse Logo">
+        </a>
+    </div>
+    <div class="hcenter">
+        <div class="hsearch_area">
+            <form action="/search" method="get">
+                <input type="text" name="query" id="query" placeholder="Search" required>
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                        <path
+                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z">
+                        </path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hright">
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">
+                        HOME
+                    </a>
+                </li>
+                <li>
+                    <a href="/user/cart">
+                        CART
+                    </a>
+                </li>
+                <li>
+                    <a href="/user/wishlist">
+                        WISHLIST
+                    </a>
+                </li>
+                <li>
+                    <a href="/user/orders">
+                        ORDERS
+                    </a>
+                </li>
+                <li>
+                    <a href="/user/profile">
+                        PROFILE
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <script>
     function search() {
         let search_area = document.querySelector('.search_area');
@@ -150,4 +207,24 @@
         let menu_container = document.querySelector('.menu_container');
         menu_container.classList.toggle('display');
     }
+
+    // JavaScript to toggle classes based on screen width
+    function toggleHeader() {
+        const desktopHeader = document.querySelector('.desktop_header');
+        const mobileHeader = document.querySelector('.mobile_header');
+
+        if (window.innerWidth <= 768) {
+            desktopHeader.style.display = 'none';
+            mobileHeader.style.display = 'flex';
+        } else {
+            desktopHeader.style.display = 'flex';
+            mobileHeader.style.display = 'none';
+        }
+    }
+
+    // Initial call to set header based on screen width
+    toggleHeader();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', toggleHeader);
 </script>

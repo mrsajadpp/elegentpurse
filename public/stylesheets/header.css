@@ -8,7 +8,7 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 998;
+    z-index: 997;
     background: #fff;
 }
 
@@ -71,7 +71,7 @@
     background-color: rgba(146, 146, 146, 0.61);
     backdrop-filter: blur(5px);
     padding-top: 30px;
-    z-index: 997;
+    z-index: 996;
 }
 
 .search_area .input_box {

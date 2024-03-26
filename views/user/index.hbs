@@ -300,37 +300,6 @@
 
 
 
-<script>
-  // Function to execute when screen width changes
-function handleScreenWidthChange() {
-    var screenWidth = window.innerWidth;
-
-    // Check if screen width is 992 or above
-    if (screenWidth >= 992) {
-        // Add style to hide first element
-        document.getElementById('mobile_header').style.display = '';
-        
-        // Remove style to show second element
-        document.getElementById('desktop_header').style.display = 'flex';
-    } else {
-        // Remove style to show first element
-        document.getElementById('mobile_header').style.display = '';
-        
-        // Add style to hide second element
-        document.getElementById('desktop_header').style.display = 'none';
-    }
-}
-
-// Add event listener for screen resize
-window.addEventListener('resize', handleScreenWidthChange);
-
-// Initial call to handle screen width on page load
-handleScreenWidthChange();
-
-</script>
-
-
-
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

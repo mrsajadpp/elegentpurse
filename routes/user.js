@@ -152,9 +152,7 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
     const addCollection = db.get().collection('ADDRESS');
     const userExist = await userCollection.findOne({ email: req.session.user.email, status: true });
     const adressExist = await addCollection.findOne({ user_id: userExist._id });
-    console.log(req.body);
-    console.log(req.session.user);
-    console.log(userExist._id);
+
     const address = {
       name: `${userExist.first_name} ${userExist.last_name}`,
       user_id: userExist._id,
@@ -166,8 +164,6 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
       zip_code: req.body.zip_code,
       gender: req.body.gender
     }
-
-    console.log(address);
 
     if (adressExist) {
       addCollection.updateOne({ user_id: userExist._id }, { $set: address });

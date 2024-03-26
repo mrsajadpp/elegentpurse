@@ -170,7 +170,7 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
     console.log(address);
 
     if (adressExist) {
-      addCollection.updateOne({ email: userExist.email }, { $set: address });
+      addCollection.updateOne({ user_id: userExist_id }, { $set: address });
     } else {
       await addCollection.insertOne(address);
     }

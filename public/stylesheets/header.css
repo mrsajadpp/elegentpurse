@@ -191,7 +191,7 @@
 
 /* Desktop header */
 #header .hleft {
-    width: 250px;
+    width: 300px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -207,7 +207,7 @@
 }
 
 #header .hright {
-    width: 100%;
+    width: 70%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -270,7 +270,7 @@
 }
 
 #header .hright nav ul li {
-    margin: 15px;
+    margin: 10px;
 }
 
 #header .hright nav ul li a {

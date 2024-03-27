@@ -8,14 +8,13 @@
         <hr>
       </div>
       <div class="mx-2 px-5 mb-5 poppins-medium ">
-        <h6 class="py-2">First Name : <span class="fw-semibold">Ann</span> </h6>
-        <h6 class="py-2">Last Name : <span class="fw-semibold">John</span> </h6>
-        <h6 class="py-2">Email ID : <span class="fw-semibold">ann@gmail.com</span> </h6>
-        <h6 class="py-2">Mobile Number : <span class="fw-semibold">08235659974</span> </h6>
-        <h6 class="py-2">Gender : <span class="fw-semibold">Female</span> </h6>
-        <h6 class="py-2">DOB : <span class="fw-semibold">12-12-12</span> </h6>
-        <h6 class="py-2">Address : <span class="fw-semibold">Ann House, MG Road, Kozhikode, 673003</span> </h6>
-        <a href="./editProfile.html" class="btn btn-dark px-0 mt-4 col-12 col-md-5 " style="border-radius: 0;">EDIT
+        <h6 class="py-2">First Name : <span class="fw-semibold">{{user.first_name}}</span> </h6>
+        <h6 class="py-2">Last Name : <span class="fw-semibold">{{user.last_name}}</span> </h6>
+        <h6 class="py-2">Email ID : <span class="fw-semibold">{{user.email}}</span> </h6>
+        <h6 class="py-2">Mobile Number : <span class="fw-semibold">{{user.phone}}</span> </h6>
+        <h6 class="py-2">Gender : <span class="fw-semibold">{{address.gender}}</span> </h6>
+        <h6 class="py-2">Address : <span class="fw-semibold">{{address.address_line_one}}, {{address.address_line_two}}, {{address.zip_code}}.</span> </h6>
+        <a href="/user/profile/edit" class="btn btn-dark px-0 mt-4 col-12 col-md-5 " style="border-radius: 0;">EDIT
           PROFILE</a>
 
 

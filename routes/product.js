@@ -20,9 +20,17 @@ router.get('/', function (req, res, next) {
 });
 
 // GET Add Category Api
-router.post('/category/add', isAdmin, function (req, res, next) {
+router.post('/category/add', isAdmin, async function (req, res, next) {
   try {
-    
+    const catCollection = db.get().collection('CATEGORY');
+    console.log(req.body); 
+    const newCat = {
+      name: req.body.name,
+      description: req.body.discription,
+      timestamp: new Date()
+    }
+    await catCollection.insertOne(newCat);
+    res.redirect('/admin/category')
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

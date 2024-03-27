@@ -7,26 +7,22 @@
         </div>
     </div>
     <!-- Spinner End -->
-{{> admin_header}}
+    {{> admin_header}}
 
-        <!-- Sale & Revenue Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="container d-flex mb-5">
-                    <div>
-                        <h5><strong> Category</strong> </h5>
-                        <span class="opacity-50"> Dashboard > Categorise > Add Category</span>
-                    </div>
-                    <div class="ms-auto me-5">
-                        <a href="#" class="btn text-white me-auto  btn-dark"><i class="fa-regular fa-plus"
-                                style="color: #ffffff;"></i> Save Category</a>
-                    </div>
-                </div>
-
-
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="container d-flex mb-5">
                 <div>
-                    <div class="container d-flex">
+                    <h5><strong> Category</strong> </h5>
+                    <span class="opacity-50"> Dashboard > Categorise > Add Category</span>
+                </div>
+            </div>
 
+
+            <div>
+                <div class="container d-flex">
+                    <form action="/api/product/category/add" method="post">
 
                         <div class="col-6 ">
 
@@ -36,47 +32,51 @@
                             <div class="mb-3">
                                 <label for="product-name" class="form-label">Category Name</label>
                                 <input type="text" class="form-control" id="productName" name="name"
-                                    placeholder="Type Category name here">
+                                    placeholder="Name here" required>
 
                             </div>
                             <div class="mb-5">
                                 <label for="discription" class="form-label">Discription</label>
-                                <textarea class="form-control" rows="5" name="discription" id="comment"></textarea>
+                                <textarea class="form-control" rows="5" name="discription" id="comment" required></textarea>
+                            </div>
+
+                            <div class="mb-5">
+                               <button class="form-control" type="submit">Save</button>
                             </div>
                         </div>
-                        </form>
+                    </form>
 
-
-
-                    </div>
 
 
                 </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid pt-4 px-4 fixed-bottom">
+    <div class="bg-light rounded-top p-4">
+        <div class="row">
+            <div class="col-12 col-sm-6 text-center text-sm-start">
+                &copy; <a href="#">Elegantpurse</a>, All Right Reserved.
+            </div>
+            <div class="col-12 col-sm-6 text-center text-sm-end">
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                Designed By <a href="https://htmlcodex.com">Thintry</a>
+                </br>
 
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid pt-4 px-4 fixed-bottom">
-        <div class="bg-light rounded-top p-4">
-            <div class="row">
-                <div class="col-12 col-sm-6 text-center text-sm-start">
-                    &copy; <a href="#">Elegantpurse</a>, All Right Reserved.
-                </div>
-                <div class="col-12 col-sm-6 text-center text-sm-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://htmlcodex.com">Thintry</a>
-                    </br>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
 </div>
 <!-- Content End -->
 

@@ -35,9 +35,12 @@ router.get('/product', isAdmin, function (req, res, next) {
 });
 
 // GET Category Page
-router.get('/category', isAdmin, function (req, res, next) {
+router.get('/category', isAdmin, async function (req, res, next) {
   try {
-    res.render('admin/category', { title: 'Category - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true })
+    const catCollection = db.get().collection('CATEGORY');
+    const categories = await catCollection.find().toArray();
+    console.log(categories);
+    res.render('admin/category', { title: 'Category - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true, categories })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
@@ -58,7 +61,7 @@ router.get('/category/add', isAdmin, function (req, res, next) {
 router.get('/product/add', isAdmin, async function (req, res, next) {
   try {
     const catCollection = db.get().collection('CATEGORY');
-    const categories = await catCollection.find();
+    const categories = await catCollection.find().toArray();
     console.log(categories);
     res.render('admin/addproduct', { title: 'Add Product - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true, categories })
   } catch (err) {

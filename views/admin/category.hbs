@@ -7,175 +7,96 @@
         </div>
     </div>
     <!-- Spinner End -->
-{{> admin_header}}
-        <!-- Sale & Revenue Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="container d-flex mb-5">
-                    <div>
-                        <h5><strong> Category</strong> </h5>
-                        <span class="opacity-50"> Dashboard > Categorise</span>
-                    </div>
-                    <div class="ms-auto me-5">
-                        <a href="/admin/category/add" class="btn text-white me-auto  btn-dark"><i
-                                class="fa-regular fa-plus" style="color: #ffffff;"></i> Add Category</a>
-                    </div>
-                </div>
-
-
+    {{> admin_header}}
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="container d-flex mb-5">
                 <div>
-                    <table class="table" id="myTable">
-                        <colgroup>
-
-                            <col style="width: 158px;" /> <!-- Column for Category -->
-
-                            <col style="width: 150px;" /> <!-- Column for Added -->
-                            <col style="width: 100px;" /> <!-- Column for Action -->
-                            <col style="width: 100px;" /> <!-- Column for Action -->
-
-                        </colgroup>
-                        <thead>
-                            <tr>
-
-                                <th scope="col">Category</th>
-
-                                <th scope="col">Added</th>
-                                <th scope="col">Active</th>
-                                <th scope="col">Action</th>
-
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-
-
-                            <tr>
-
-                                <td colspan="1">
-                                    Category 1
-                                </td>
-
-
-                                <td class="pt-3"> 18-03-2024</td>
-                                <td class="pt-3"> True</td>
-
-                                <td class="pt-3">
-                                    <button id="activeButton" class="unlistButton btn"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #4a5153;"></i></button>
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #4a5153;"></i></a>
-
-                                    <button id="delButton" class=" btn softDel"><i class="fa fa-trash ms-4"
-                                            style="color: #4a5153;" aria-hidden="true"></i></a>
-                                </td>
-
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    Category 2
-                                </td>
-
-
-                                <td class="pt-3"> 18-03-2024</td>
-                                <td class="pt-3"> True</td>
-
-                                <td class="pt-3">
-                                    <button id="activeButton" class="unlistButton btn"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #4a5153;"></i></button>
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #4a5153;"></i></a>
-
-                                    <button id="delButton" class=" btn softDel"><i class="fa fa-trash ms-4"
-                                            style="color: #4a5153;" aria-hidden="true"></i></a>
-                                </td>
-
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    Category 3
-                                </td>
-
-
-                                <td class="pt-3"> 18-03-2024</td>
-                                <td class="pt-3"> True</td>
-
-                                <td class="pt-3">
-                                    <button id="activeButton" class="unlistButton btn"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #4a5153;"></i></button>
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #4a5153;"></i></a>
-
-                                    <button id="delButton" class=" btn softDel"><i class="fa fa-trash ms-4"
-                                            style="color: #4a5153;" aria-hidden="true"></i></a>
-                                </td>
-
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    Category 4
-                                </td>
-
-
-                                <td class="pt-3"> 18-03-2024</td>
-                                <td class="pt-3"> True</td>
-
-                                <td class="pt-3">
-                                    <button id="activeButton" class="unlistButton btn"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #4a5153;"></i></button>
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #4a5153;"></i></a>
-
-                                    <button id="delButton" class=" btn softDel"><i class="fa fa-trash ms-4"
-                                            style="color: #4a5153;" aria-hidden="true"></i></a>
-                                </td>
-
-                                </td>
-
-                            </tr>
-
-
-
-
-
-
-                        </tbody>
-
-                    </table>
+                    <h5><strong> Category</strong> </h5>
+                    <span class="opacity-50"> Dashboard > Categorise</span>
                 </div>
+                <div class="ms-auto me-5">
+                    <a href="/admin/category/add" class="btn text-white me-auto  btn-dark"><i class="fa-regular fa-plus"
+                            style="color: #ffffff;"></i> Add Category</a>
+                </div>
+            </div>
+
+
+            <div>
+                <table class="table" id="myTable">
+                    <colgroup>
+
+                        <col style="width: 158px;" /> <!-- Column for Category -->
+
+                        <col style="width: 150px;" /> <!-- Column for Added -->
+                        <col style="width: 100px;" /> <!-- Column for Action -->
+                        <col style="width: 100px;" /> <!-- Column for Action -->
+
+                    </colgroup>
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Category</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{#each categories}}
+                        <tr>
+
+                            <td colspan="1">
+                                {{this.name}}
+                            </td>
+
+                            <td>
+                                {{this.description}}
+                            </td>
+
+                            <td class="pt-3">
+                                <button id="activeButton" class="unlistButton btn" onclick="location.href = '/api/product/category/del/{{this._id}}'"><i class="fa fa-trash"
+                                        style="color: #4a5153;" aria-hidden="true"></i></button>
+                                <button id="activeButton" class="unlistButton btn" onclick="location.href = '/admin/product/category/edit/{{this._id}}'"><i class="fa-solid fa-pen-to-square"
+                                        style="color: #4a5153;"></i></button>
+                            </td>
+
+                            </td>
+
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid pt-4 px-4 fixed-bottom">
+    <div class="bg-light rounded-top p-4">
+        <div class="row">
+            <div class="col-12 col-sm-6 text-center text-sm-start">
+                &copy; <a href="#">Elegantpurse</a>, All Right Reserved.
+            </div>
+            <div class="col-12 col-sm-6 text-center text-sm-end">
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                Designed By <a href="https://htmlcodex.com">Thintry</a>
+                </br>
 
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid pt-4 px-4 fixed-bottom">
-        <div class="bg-light rounded-top p-4">
-            <div class="row">
-                <div class="col-12 col-sm-6 text-center text-sm-start">
-                    &copy; <a href="#">Elegantpurse</a>, All Right Reserved.
-                </div>
-                <div class="col-12 col-sm-6 text-center text-sm-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://htmlcodex.com">Thintry</a>
-                    </br>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
 </div>
 <!-- Content End -->
 

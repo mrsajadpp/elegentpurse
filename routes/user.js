@@ -69,6 +69,7 @@ router.post('/auth/signup', async function (req, res, next) {
             phone: req.body.phone,
             password: hashedPassword,
             status: false,
+            admin: false,
             otp: otp,
             otp_expiry: new Date(Date.now() + 5 * 60 * 1000) // OTP expiry after 5 minutes
           };
@@ -99,6 +100,7 @@ router.post('/auth/signup', async function (req, res, next) {
             phone: req.body.phone,
             password: hashedPassword,
             status: false,
+            admin: false,
             otp: otp,
             otp_expiry: new Date(Date.now() + 5 * 60 * 1000) // OTP expiry after 5 minutes
           };
@@ -131,6 +133,7 @@ router.post('/auth/signup', async function (req, res, next) {
           phone: userExist.phone,
           password: userExist.password,
           status: true,
+          admin: false,
           timestamp: new Date()
         };
 

@@ -76,4 +76,15 @@ router.get('/auth/address', isAuthorised, async function (req, res, next) {
   }
 });
 
+// GET Logout Url
+router.get('/logout', isAuthorised, async function (req, res, next) {
+  try {
+    req.session.destroy();
+    res.redirect('/auth/login');
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;

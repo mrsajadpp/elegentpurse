@@ -1,97 +1,51 @@
-
-  <div class="container profile_box">
-    <div class="row  ">
-     
-         <div class="col col-sm-12 col-md-8 col-lg-7 mt-5  mx-auto align-items-center   " style="border: 1px solid rgba(0, 0, 0, 0.208); box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);">
-           <form action="./profile.html">
-            <div class="ms-3  mt-5 poppins-medium ">
-                <h5 class="poppins-bold">Edit Details</h5> 
-             <hr>
-             <div class="pt-3 pb-3">
-                <label for="">First Name : </label>
-                <input type="text" placeholder="" class="form-control">
-            </div>
-            <div class="pt-3 pb-3">
-                <label for="">Last Name : </label>
-                <input type="text" placeholder="" class="form-control">
-            </div>
-            <div class="pt-3 pb-3">
-                <label for="">Email ID : </label>
-                <input type="email" placeholder="" class="form-control">
-            </div>
-            <div class="pt-3 pb-3">
-                <label for="">Mobile Number : </label>
-                <input type="tel" placeholder="" class="form-control">
-            </div>
-            <div class="pt-3 pb-3">
-                <label for="">Gender : </label>
-                <div class="mb-3 col-6 gap-4 d-flex">
-                           
-                    <div class="form-check  " >
-                      <input class="form-check-input"  type="radio" name="Radios"   value="male">
-                      <label class="form-check-label" for="exampleRadios1">
-                        Male
-                      </label>
-                    </div>
-                    <div class="form-check" >
-                      <input class="form-check-input" type="radio" name="Radios"  value="female" > 
-                      <label class="form-check-label" for="exampleRadios2">
-                       Female
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="Radios"  value="others"  >
-                      <label class="form-check-label" for="exampleRadios3">
-                        Other
-                      </label>
-                    </div>
-                  </div>
-            </div>
-            <div class="pt-3 pb-3">
-                <label for="">DOB : </label>
-                <input type="text" placeholder="" class="form-control">
-            </div>
-            <div class="pt-3 pb-3 ">
-                <label for="">Address:</label>
-                <div class="mb-3">
-                          
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                  </div>
-                  <div class="my-3">
-                    <!-- <label for="inputAddress2" class="form-label">Address 2</label> -->
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                  </div>
-                  <div class="my-3">
-                    <!-- <label for="inputCity" class="form-label">City</label> -->
-                    <input type="text" class="form-control" id="inputCity" placeholder="City">
-                  </div>
-                  <div class="my-3">
-                    <!-- <label for="inputState" class="form-label">State</label> -->
-                    <select id="inputState" class="form-select" >
-                      <option selected>Choose State</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                  <div class="my-3">
-                      <!-- <label for="inputZip" class="form-label">Zip</label> -->
-                      <input type="text" class="form-control" id="inputZip" placeholder="LandMark">
-                    </div>
-                    <div class="my-3">
-                      <!-- <label for="inputZip" class="form-label">Zip</label> -->
-                      <input type="text" class="form-control" id="inputZip" placeholder="Zip">
-                    </div>
-            </div>
-                </div>
-           </form>
-         <div class="  mb-5 poppins-medium text-center">
-       
-         <button class="btn btn-dark px-0 mt-4 col-6  mt-4" style="border-radius: 0;" >SAVE DETAILS</button>
-        
-         </div>
-
-
-        </div>
-        
-     
-    </div>        
+<link rel="stylesheet" href="/stylesheets/login.css">
+<div class="container">
+  <div class="inputContainer">
+    <form action="/api/user/auth/address/update" method="post">
+      <div class="input">
+        <input type="text" id="firstname" value="{{user.first_name}}" name="first_name" placeholder="First Name"
+          required>
+      </div>
+      <div class="input">
+        <input type="text" id="firstname" value="{{user.last_name}}" name="last_name" placeholder="Last Name" required>
+      </div>
+      <div class="input">
+        <input type="email" id="username" value="{{user.email}}" name="email" placeholder="Email" required>
+      </div>
+      <div class="input">
+        <input type="tel" id="username" value="{{user.phone}}" name="phone" placeholder="Phone No" required>
+      </div>
+      <div class="input">
+        <input type="text" id="firstname" value="{{address.address_line_one}}" name="address_line_one"
+          placeholder="Address Line One" required>
+      </div>
+      <div class="input">
+        <input type="text" id="firstname" value="{{address.address_line_two}}" name="address_line_two"
+          placeholder="Address Line Two" required>
+      </div>
+      <div class="input">
+        <input type="text" id="firstname" value="{{address.state}}" name="state"
+          placeholder="State" required>
+      </div>
+      <div class="input">
+        <input type="text" id="username" name="city" value="{{address.city}}" placeholder="City" required>
+      </div>
+      <div class="input">
+        <input type="text" id="username" name="landmark" value="{{address.land_mark}}" placeholder="Land Mark" required>
+      </div>
+      <div class="input">
+        <input type="number" name="zip_code" id="password" value="{{address.zip_code}}" placeholder="Zip Code" required>
+      </div>
+      <div class="input">
+        <select name="gender" id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      <div class="input loginInp">
+        <button type="submit" title="Click to login with your existing account.">UPDATE</button>
+      </div>
+    </form>
   </div>
+</div>

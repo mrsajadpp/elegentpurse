@@ -1,127 +1,77 @@
-<section class=" gradient-custom mb-5">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card  text-black mb-5"
-          style="border-radius: 0; border: px solid black; background: white; box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.228);">
-          <div class="card-body p-5 text-center">
 
-            <div class="mb-md-5 mt-md-4 pb-5">
-              <img src="/images/logowrk.png" width="250px" alt="">
-
-              <!-- <h2 class="fw-bold mb-2 text-uppercase">Login</h2> -->
-              <p class="text-black-50 mb-5">Please enter your login and password!</p>
-
-              <form class="row g-3" id="AdrsForm" action="/api/user/auth/address" method="post">
-
-                <div class="col-12">
-
-                  <input type="text" class="form-control" id="inputAddress" name="address_line_one"
-                    placeholder="Address Line 1" required>
-                </div>
-                <div class="col-12">
-                  <!-- <label for="inputAddress2" class="form-label">Address 2</label> -->
-                  <input type="text" class="form-control" id="inputAddress2" name="address_line_two"
-                    placeholder="Address Line 2" required>
-                </div>
-                <div class="col-md-6">
-                  <!-- <label for="inputCity" class="form-label">City</label> -->
-                  <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" required>
-                </div>
-                <div class="col-md-6">
-                  <!-- <label for="inputState" class="form-label">State</label> -->
-                  <select id="inputState" name="state" class="form-select" required>
-                    <option selected="">Choose State</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="West Bengal">West Bengal</option>
-                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu
-                    </option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                  </select>
-
-                </div>
-                <div class="col-md-6">
-                  <!-- <label for="inputZip" class="form-label">Zip</label> -->
-                  <input type="text" class="form-control" id="inputZip" name="landmark" placeholder="LandMark" required>
-                </div>
-                <div class="col-md-6">
-                  <!-- <label for="inputZip" class="form-label">Zip</label> -->
-                  <input type="text" class="form-control" id="inputZip" name="zip_code" placeholder="Zip" required>
-                </div>
-                <h6 class="pt-3 text-start"> Your Gender</h6>
-                <div class="mb-3 col-6 gap-4 d-flex">
-
-                  <div class="form-check  ">
-                    <input class="form-check-input" type="radio" name="gender" value="male" required>
-                    <label class="form-check-label" for="exampleRadios1">
-                      Male
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" value="female" required>
-                    <label class="form-check-label" for="exampleRadios2">
-                      Female
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" value="others" required>
-                    <label class="form-check-label" for="exampleRadios3">
-                      Other
-                    </label>
-                  </div>
-                </div>
-
-
-                <div class="col-12">
-                  <button type="submit" class="btn btn-dark px-5 btn-lg text-uppercase fw-semibold">Let's Go</button>
-                </div>
-              </form>
-              {{!-- <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-black"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-black"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-black"><i class="fab fa-google fa-lg"></i></a>
-              </div> --}}
-
-            </div>
-
-            <div>
-              <p class="mb-0">Already have an account? <a href="/auth/login" class=" fw-bold">Login</a>
-              </p>
-            </div>
-
-          </div>
-        </div>
+<link rel="stylesheet" href="/stylesheets/login.css">
+<div class="container">
+  <img src="/images/logowrk.png" alt="">
+  <div class="inputContainer">
+    <form action="/api/user/auth/address" method="post">
+      <div class="input">
+        <input type="text" id="firstname" name="address_line_one" placeholder="Address Line One" required>
       </div>
-    </div>
+      <div class="input">
+        <input type="text" id="firstname" name="address_line_two" placeholder="Address Line Two" required>
+      </div>
+      <div class="input">
+        <select id="inputState" name="state" required>
+          <option selected="">Choose State</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu
+          </option>
+          <option value="Delhi">Delhi</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Puducherry">Puducherry</option>
+        </select>
+      </div>
+      <div class="input">
+        <input type="text" id="username" name="city" placeholder="City" required>
+      </div>
+      <div class="input">
+        <input type="text" id="username" name="land_mark" placeholder="Land Mark" required>
+      </div>
+      <div class="input">
+        <input type="number" name="zip_code" id="password" placeholder="Zip Code" required>
+      </div>
+      <div class="input">
+        <select name="gender" id="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      <div class="input loginInp">
+        <button type="submit" title="Click to login with your existing account.">LET'S GO</button>
+      </div>
+      <div class="info">
+        <span>Do you have a account? <a href="/auth/login">LogIn.</a></span>
+      </div>
+    </form>
   </div>
-</section>
+</div>

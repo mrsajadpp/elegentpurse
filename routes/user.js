@@ -86,7 +86,7 @@ router.post('/auth/signup', async function (req, res, next) {
 
           console.log(newUser);
           req.session.user = newUser;
-          res.render('user/otp', { title: 'Verify OTP - Elegentpurse' })
+          res.render('user/otp', { title: 'Verify OTP - Elegentpurse', auth: true })
         } else {
           // Generate 6-digit OTP
           const otp = Math.floor(100000 + Math.random() * 900000);
@@ -175,6 +175,48 @@ router.post('/auth/address', isAuthorised, async function (req, res, next) {
     }
 
     res.redirect('/');
+  } catch (err) {
+    console.error("Error inserting user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// GET SignUp Address Page
+router.post('/auth/address/update', isAuthorised, async function (req, res, next) {
+  try {
+    const userCollection = db.get().collection('USER');
+    const addCollection = db.get().collection('ADDRESS');
+    const userExist = await userCollection.findOne({ email: req.session.user.email, status: true });
+
+    const address = {
+      name: `${req.body.first_name} ${req.body.last_name}`,
+      user_id: userExist._id,
+      address_line_one: req.body.address_line_one,
+      address_line_two: req.body.address_line_two,
+      city: req.body.city,
+      state: req.body.state,
+      land_mark: req.body.landmark,
+      zip_code: req.body.zip_code,
+      gender: req.body.gender
+    }
+
+    const newUser = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      phone: req.body.phone,
+      password: userExist.password,
+      status: true,
+      admin: userExist.admin,
+      timestamp: userExist.timestamp
+    };
+
+    req.session.user = newUser;
+
+    await userCollection.updateOne({ email: userExist.email }, { $set: newUser });
+    await addCollection.updateOne({ user_id: userExist._id }, { $set: address });
+    res.redirect('/user/profile');
+
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

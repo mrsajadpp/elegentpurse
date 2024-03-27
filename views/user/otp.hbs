@@ -1,37 +1,17 @@
-<section class=" gradient-custom mb-5">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card  text-black mb-5"
-          style="border-radius: 0; border: px solid black; background: white; box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.228);">
-          <div class="card-body p-5 text-center">
-
-            <div class="mb-md-5 mt-md-4 ">
-              <a href="/">
-                <img src="/images/logowrk.png" width="250px" alt="">
-              </a>
-
-
-              <form id="otpForm" accept="/api/user/auth/signup" method="post">
-                <div class="form-group mt-4">
-                  <input type="number" id="otp" name="otp" class="form-control" placeholder="Enter OTP" required>
-                </div>
-                <button type="submit" class="btn btn-dark mt-4">Verify OTP</button>
-              </form>
-
-
-
-
-
-            </div>
-
-            <div>
-              <p class="mb-0">If you haven't received your OTP, please wait for five minutes before trying again. You can also try refreshing this page to ensure smooth processing.</p>
-            </div>
-
-          </div>
-        </div>
+<link rel="stylesheet" href="/stylesheets/login.css">
+<div class="container">
+  <img src="/images/logowrk.png" alt="">
+  <div class="inputContainer">
+    <form action="/api/user/auth/signup" method="post">
+      <div class="input">
+        <input type="number" id="otp" name="otp" placeholder="Otp" required>
       </div>
-    </div>
+      <div class="input loginInp">
+        <button type="submit" id="verify" title="Click to login with your existing account.">VERIFY</button>
+      </div>
+      <div class="info">
+        <span>Check your email or email spam section.</span>
+      </div>
+    </form>
   </div>
-</section>
+</div>

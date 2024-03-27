@@ -1,4 +1,6 @@
-<section class="mb-5">
+<!-- banner  -->
+
+<section class="mb-5 d-none d-md-block">
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -26,129 +28,134 @@
 
 <!-- Category Buttons -->
 <section>
-  <div class="container-fluid align-items-center mt-4">
-    <div class="row">
-      <div class="col-12 poppins-medium">
-        <div class="btn boxBg">All</div>
-        <div class="btn boxBg">Item 1</div>
-        <div class="btn boxBg">Item 2</div>
-        <div class="btn boxBg">Item 3</div>
-        <div class="btn boxBg">Item4</div>
-        <div class="btn boxBg">Item 5</div>
-      </div>
-    </div>
+  <div class="tab-scroller ">
+    <i class="tab-scroller-arrow left-arrow d-lg-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+      </svg>
+    </i>
+    <i class="tab-scroller-arrow right-arrow d-lg-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </i>
+    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+      {{#each categories}}
+      <li class="nav-item" role="presentation">
+        <a href="/category/{{this.name}}" class="btn  btn-dark me-2 ms-1 ">{{this.name}}</a>
+      </li>
+      {{/each}}
+    </ul>
   </div>
 </section>
 
 <!-- Product Card 1 -->
-<section class="mt-1 ms-5 me-3 d-flex gap-4 ">
+<section class=" ">
   <div class="container-fluid ">
-    <div class="row">
-      <div class="card mt-4 cardItem container-fluid " style="width: 15rem;">
-        <a href="/product/gesrtgertgert">
+    <div class="row start">
+      <div class="card mt-4 cardItem  " style="width: 15rem;">
+        <a href="./itemDetails.html">
           <img src="/images/card_img.png" class="card-img-top" alt="...">
         </a>
-        <div class="card-body">
-          <div class="wishlist-container ">
-            <a href="" class="btn wishlist-btn text-center  " style="margin-top: -62px;"><span
-                class="material-symbols-outlined">
-                favorite
-              </span>Whishlist</a>
-          </div>
-          <h6 class="card-title poppins-semibold">Product 1</h6>
+        <div class="wishlist-container position-absolute end-0 ">
+          <a href="" class="btn wishlist-btn "><span class="material-symbols-outlined">
+              favorite
+            </span></a>
+        </div>
+        <div class="card-body ps-0 pe-0">
+          <h6 class="card-title poppins-semibold">Product1</h6>
           <p class="card-text poppins-light cardText">Some quick example content.</p>
-          <p class="cardText" style=" margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
+          <p class="cardText" style="margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
               style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
               style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
         </div>
       </div>
-      <div class="card mt-4 cardItem container-fluid " style="width: 15rem;">
-        <a href="/product/gesrtgertgert">
-          <img src="/images/card_img.png" class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-          <div class="wishlist-container ">
-            <a href="" class="btn wishlist-btn text-center  " style="margin-top: -62px;"><span
-                class="material-symbols-outlined">
-                favorite
-              </span>Whishlist</a>
-          </div>
-          <h6 class="card-title poppins-semibold">Product 2</h6>
-          <p class="card-text poppins-light cardText">Some quick example content.</p>
-          <p class="cardText" style=" margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
-              style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
-              style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
-        </div>
-      </div>
-      <div class="card mt-4 cardItem container-fluid " style="width: 15rem;">
-        <a href="/product/gesrtgertgert"><img src="/images/card_img.png" class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-          <div class="wishlist-container ">
-            <a href="" class="btn wishlist-btn text-center  " style="margin-top: -62px;"><span
-                class="material-symbols-outlined">
-                favorite
-              </span>Whishlist</a>
-          </div>
-          <h6 class="card-title poppins-semibold">Product 3</h6>
-          <p class="card-text poppins-light cardText">Some quick example content.</p>
-          <p class="cardText" style=" margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
-              style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
-              style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
-        </div>
-      </div>
-      <div class="card mt-4 cardItem container-fluid " style="width: 15rem;">
-        <a href="/product/gesrtgertgert">
-          <img src="/images/card_img.png" class="card-img-top" alt="...">
 
+      <div class="card mt-4 cardItem  " style="width: 15rem;">
+        <a href="./itemDetails.html">
+          <img src="/images/card_img.png" class="card-img-top" alt="...">
         </a>
-        <div class="card-body">
-          <div class="wishlist-container ">
-            <a href="" class="btn wishlist-btn text-center  " style="margin-top: -62px;"><span
-                class="material-symbols-outlined">
-                favorite
-              </span>Whishlist</a>
-          </div>
-          <h6 class="card-title poppins-semibold">Product 4</h6>
+        <div class="wishlist-container position-absolute end-0 ">
+          <a href="" class="btn wishlist-btn "><span class="material-symbols-outlined">
+              favorite
+            </span></a>
+        </div>
+        <div class="card-body ps-0 pe-0">
+          <h6 class="card-title poppins-semibold">Product1</h6>
           <p class="card-text poppins-light cardText">Some quick example content.</p>
-          <p class="cardText" style=" margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
+          <p class="cardText" style="margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
               style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
               style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
         </div>
       </div>
-      <div class="card mt-4 cardItem container-fluid " style="width: 15rem;">
-        <a href="/product/gesrtgertgert">
+      <div class="card mt-4 cardItem  " style="width: 15rem;">
+        <a href="./itemDetails.html">
           <img src="/images/card_img.png" class="card-img-top" alt="...">
         </a>
-        <div class="card-body">
-          <div class="wishlist-container ">
-            <a href="" class="btn wishlist-btn text-center  " style="margin-top: -62px;"><span
-                class="material-symbols-outlined">
-                favorite
-              </span>Whishlist</a>
-          </div>
-          <h6 class="card-title poppins-semibold">Product 5</h6>
+        <div class="wishlist-container position-absolute end-0 ">
+          <a href="" class="btn wishlist-btn "><span class="material-symbols-outlined">
+              favorite
+            </span></a>
+        </div>
+        <div class="card-body ps-0 pe-0">
+          <h6 class="card-title poppins-semibold">Product1</h6>
           <p class="card-text poppins-light cardText">Some quick example content.</p>
-          <p class="cardText" style=" margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
+          <p class="cardText" style="margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
               style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
               style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
         </div>
       </div>
-      <div class="card mt-4 cardItem container-fluid " style="width: 15rem;">
-        <a href="/product/gesrtgertgert">
+      <div class="card mt-4 cardItem  " style="width: 15rem;">
+        <a href="./itemDetails.html">
           <img src="/images/card_img.png" class="card-img-top" alt="...">
-
         </a>
-        <div class="card-body">
-          <div class="wishlist-container ">
-            <a href="" class="btn wishlist-btn text-center  " style="margin-top: -62px;"><span
-                class="material-symbols-outlined">
-                favorite
-              </span>Whishlist</a>
-          </div>
-          <h6 class="card-title poppins-semibold">Product 6</h6>
+        <div class="wishlist-container position-absolute end-0 ">
+          <a href="" class="btn wishlist-btn "><span class="material-symbols-outlined">
+              favorite
+            </span></a>
+        </div>
+        <div class="card-body ps-0 pe-0">
+          <h6 class="card-title poppins-semibold">Product1</h6>
           <p class="card-text poppins-light cardText">Some quick example content.</p>
-          <p class="cardText" style=" margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
+          <p class="cardText" style="margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
+              style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
+              style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
+        </div>
+      </div>
+      <div class="card mt-4 cardItem  " style="width: 15rem;">
+        <a href="./itemDetails.html">
+          <img src="/images/card_img.png" class="card-img-top" alt="...">
+        </a>
+        <div class="wishlist-container position-absolute end-0 ">
+          <a href="" class="btn wishlist-btn "><span class="material-symbols-outlined">
+              favorite
+            </span></a>
+        </div>
+        <div class="card-body ps-0 pe-0">
+          <h6 class="card-title poppins-semibold">Product1</h6>
+          <p class="card-text poppins-light cardText">Some quick example content.</p>
+          <p class="cardText" style="margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
+              style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
+              style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
+        </div>
+      </div>
+      <div class="card mt-4 cardItem  " style="width: 15rem;">
+        <a href="./itemDetails.html">
+          <img src="/images/card_img.png" class="card-img-top" alt="...">
+        </a>
+        <div class="wishlist-container position-absolute end-0 ">
+          <a href="" class="btn wishlist-btn "><span class="material-symbols-outlined">
+              favorite
+            </span></a>
+        </div>
+        <div class="card-body ps-0 pe-0">
+          <h6 class="card-title poppins-semibold">Product1</h6>
+          <p class="card-text poppins-light cardText">Some quick example content.</p>
+          <p class="cardText" style="margin-top: -13px;"><span class="fw-bold">Rs.1999</span> <span
               style="text-decoration: line-through; color: rgba(0, 0, 0, 0.537);"> Rs.3999</span> <span
               style="color: #6f4e37ae;">(Rs.2000 OFF)</span></p>
         </div>
@@ -159,3 +166,73 @@
 
 
 </section>
+
+
+
+
+
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<!-- Custom js -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    //  selector
+    document.querySelectorAll(".tab-scroller").forEach((el) => {
+      let scrollTabInner = el.querySelector(".nav")
+      let scrollTabItem = el.querySelectorAll(".nav-item")
+      let leftArrow = el.querySelector(".left-arrow")
+      let rightArrow = el.querySelector(".right-arrow")
+      //scrollable tab width
+      let scrollTabWidth = el.offsetWidth
+
+      //all tab items width
+      let scrollTabItemsWidth = () => {
+        let itemsWidth = 0;
+        scrollTabItem.forEach(el => {
+          let itemWidth = el.offsetWidth;
+          itemsWidth += itemWidth;
+        });
+        return itemsWidth
+      }
+
+      //hidden tab item width
+      let widthOfHiddenItems = scrollTabItemsWidth() - scrollTabWidth;
+      let rightValue = 0;
+      if (scrollTabItemsWidth() > scrollTabWidth) {
+        rightArrow.classList.remove("d-none")
+      }
+
+      //right arrow click functionality
+      rightArrow.addEventListener("click", () => {
+        if (rightValue > widthOfHiddenItems) {
+          rightArrow.classList.add("d-none")
+          leftArrow.classList.remove("d-none")
+          scrollTabInner.style.cssText = `right: ${widthOfHiddenItems + 35}px;`
+        } else {
+          rightArrow.classList.remove("d-none")
+          leftArrow.classList.remove("d-none")
+          rightValue += 200;
+          scrollTabInner.style.cssText = `right: ${rightValue}px;`
+        }
+      })
+
+      //left arrow click functionality
+      leftArrow.addEventListener("click", () => {
+        rightValue -= 200;
+        scrollTabInner.style.cssText = `right: ${rightValue}px;`
+        rightArrow.classList.remove("d-none")
+        if (rightValue <= 0) {
+          leftArrow.classList.add("d-none")
+          rightArrow.classList.remove("d-none")
+          scrollTabInner.style.cssText = `right: 0px;`
+        }
+      })
+    })
+  })
+</script>
+</body>
+
+</html>

@@ -17,7 +17,7 @@ const isNotAuthorised = (req, res, next) => {
   } catch (error) {
     console.error("Error:", err);
   }
-}
+} 
 
 // GET Home Page
 router.get('/', async function (req, res, next) {

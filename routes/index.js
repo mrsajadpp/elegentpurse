@@ -22,7 +22,9 @@ const isNotAuthorised = (req, res, next) => {
 // GET Home Page
 router.get('/', async function (req, res, next) {
   try {
-    res.render('user/index', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
+    const catCollection = db.get().collection('CATEGORY');
+    const categories = await catCollection.find().toArray();
+    res.render('user/index', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, categories })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

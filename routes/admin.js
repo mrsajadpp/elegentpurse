@@ -25,9 +25,11 @@ router.get('/', isAdmin, function (req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/product', isAdmin, function (req, res, next) {
+router.get('/product', isAdmin, async function (req, res, next) {
   try {
-    res.render('admin/product', { title: 'Product - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true, auth: true })
+    const prodCollection = db.get().collection('PRODUCT');
+    const products = await prodCollection.find().toArray();
+    res.render('admin/product', { title: 'Product - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true, auth: true, products })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

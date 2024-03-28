@@ -1,33 +1,33 @@
 <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-  <script src="https://kit.fontawesome.com/b3d0fe1f35.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b3d0fe1f35.js" crossorigin="anonymous"></script>
 
-  <!-- Boxicons -->
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<!-- Boxicons -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 
-  <!-- Libraries Stylesheet -->
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+<!-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-  <!-- Customized Bootstrap Stylesheet -->
-  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- Customized Bootstrap Stylesheet -->
+<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
-  <!-- Template Stylesheet -->
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
+<!-- Template Stylesheet -->
+<link rel="stylesheet" href="/stylesheets/style.css">
+<!-- <link href="css/style.css" rel="stylesheet"> -->
 
-  <!-- chart.js  -->
+<!-- chart.js  -->
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
@@ -38,184 +38,102 @@
         </div>
     </div>
     <!-- Spinner End -->
-{{> admin_header}}
-        <!-- Sale & Revenue Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="container d-flex mb-5">
-                    <div>
-                        <h5><strong> Products</strong> </h5>
-                        <span class="opacity-50"> Dashboard > Product List</span>
-                    </div>
-                    <div class="ms-auto me-5">
-                        <a href="/admin/product/add" class="btn text-white me-auto  btn-dark"><i
-                                class="fa-regular fa-plus" style="color: #ffffff;"></i> Add Product</a>
-                    </div>
-                </div>
-
-
+    {{> admin_header}}
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="container d-flex mb-5">
                 <div>
-                    <table class="table" id="myTable">
-                        <colgroup>
-
-                            <col style="width: 220px;" /> <!-- Column for Product -->
-                            <col style="width: 40px;" /> <!-- Column for SKU -->
-                            <col style="width: 90px;" /> <!-- Column for Category -->
-                            <col style="width: 20px;" /> <!-- Column for Stock -->
-                            <col style="width: 70px;" /> <!-- Column for Price -->
-                            <col style="width: 70px;" /> <!-- Column for Price -->
-                            <col style="width: 70px;" /> <!-- Column for Status -->
-
-                            <col style="width: 100px;" /> <!-- Column for Action -->
-                        </colgroup>
-                        <thead>
-                            <tr>
-
-                                <th scope="col">Product</th>
-                                <th scope="col">SKU</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Stock</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">MRP</th>
-                                <th scope="col">Status</th>
-
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    <img src="/images/e468d255-12ae-4d87-b6f6-15724340d9a9.65e9d612dd73b480556b461c81d60ae1.webp"
-                                        alt="" width="50" height="50" class="me-3">
-                                    Item 1
-                                </td>
-                                <td class="pt-3">2546</td>
-                                <td class="pt-3">Shoulder Bag</td>
-                                <td class="pt-3">23</td>
-                                <td class="pt-3">₹ 3599</td>
-                                <td class="pt-3">₹ 2599</td>
-                                <td class="pt-3">Available</td>
-
-                                <td class="pt-3">
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
-                                    <button id="activeButton" class="unlistButton btn ms-2"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #000000;"></i></button>
-
-                                    <button class="btn" style=""><i class="fa-regular fa-trash-can "
-                                            style="color: #000000; font-size:medium;"></i></button>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    <img src="/images/nnzzjqovhq0bo12s63dg.avif" alt="" width="50" height="50"
-                                        class="me-3">
-                                    Item 2
-                                </td>
-                                <td class="pt-3">2546</td>
-                                <td class="pt-3">Shoulder Bag</td>
-                                <td class="pt-3">23</td>
-                                <td class="pt-3">₹ 3599</td>
-                                <td class="pt-3">₹ 2599</td>
-                                <td class="pt-3">Available</td>
-
-                                <td class="pt-3">
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
-                                    <button id="activeButton" class="unlistButton btn ms-2"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #000000;"></i></button>
-
-                                    <button class="btn" style=""><i class="fa-regular fa-trash-can "
-                                            style="color: #000000; font-size:medium;"></i></button>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    <img src="/images/6E15DEFD-3729-4BB2-B55B-9A6C4126DFF4.webp" alt="" width="50"
-                                        height="50" class="me-3">
-                                    Item 3
-                                </td>
-                                <td class="pt-3">2546</td>
-                                <td class="pt-3">Shoulder Bag</td>
-                                <td class="pt-3">23</td>
-                                <td class="pt-3">₹ 3599</td>
-                                <td class="pt-3">₹ 2599</td>
-                                <td class="pt-3">Available</td>
-
-                                <td class="pt-3">
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
-                                    <button id="activeButton" class="unlistButton btn ms-2"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #000000;"></i></button>
-
-                                    <button class="btn" style=""><i class="fa-regular fa-trash-can "
-                                            style="color: #000000; font-size:medium;"></i></button>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td colspan="1">
-                                    <img src="/images/search.jpeg" alt="" width="50" height="50" class="me-3">
-                                    Item 4
-                                </td>
-                                <td class="pt-3">2546</td>
-                                <td class="pt-3">Shoulder Bag</td>
-                                <td class="pt-3">23</td>
-                                <td class="pt-3">₹ 3599</td>
-                                <td class="pt-3">₹ 2599</td>
-                                <td class="pt-3">Available</td>
-
-                                <td class="pt-3">
-                                    <a href=""><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
-                                    <button id="activeButton" class="unlistButton btn ms-2"><i
-                                            class="fa-regular fa-circle-xmark" style="color: #000000;"></i></button>
-
-                                    <button class="btn" style=""><i class="fa-regular fa-trash-can "
-                                            style="color: #000000; font-size:medium;"></i></button>
-
-
-                                </td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
+                    <h5><strong> Products</strong> </h5>
+                    <span class="opacity-50"> Dashboard > Product List</span>
                 </div>
+                <div class="ms-auto me-5">
+                    <a href="/admin/product/add" class="btn text-white me-auto  btn-dark"><i class="fa-regular fa-plus"
+                            style="color: #ffffff;"></i> Add Product</a>
+                </div>
+            </div>
+
+
+            <div>
+                <table class="table" id="myTable">
+                    <colgroup>
+
+                        <col style="width: 220px;" /> <!-- Column for Product -->
+                        <col style="width: 40px;" /> <!-- Column for SKU -->
+                        <col style="width: 90px;" /> <!-- Column for Category -->
+                        <col style="width: 20px;" /> <!-- Column for Stock -->
+                        <col style="width: 70px;" /> <!-- Column for Price -->
+                        <col style="width: 70px;" /> <!-- Column for Price -->
+                        <col style="width: 70px;" /> <!-- Column for Status -->
+
+                        <col style="width: 100px;" /> <!-- Column for Action -->
+                    </colgroup>
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Product</th>
+                            <th scope="col">SKU</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">MRP</th>
+                            <th scope="col">Status</th>
+
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each products}}
+                        <tr>
+
+                            <td colspan="1">
+                                <img src="/images/{{this._id}}.jpeg"
+                                    alt="" width="50" height="50" class="me-3">
+                                {{this.name}}
+                            </td>
+                            <td class="pt-3">{{this.SKU}}</td>
+                            <td class="pt-3">{{this.quantity}}</td>
+                            <td class="pt-3">₹{{this.sale_price}}</td>
+                            <td class="pt-3">₹{{this.price}}</td>
+                            <td class="pt-3">{{this.status}}</td>
+
+                            <td class="pt-3">
+                                <button id="activeButton" class="unlistButton btn"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></button>
+
+                                <button class="btn" style=""><i class="fa-regular fa-trash-can "
+                                        style="color: #000000; font-size:medium;"></i></button>
+
+
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid pt-4 px-4 fixed-bottom">
+    <div class="bg-light rounded-top p-4">
+        <div class="row">
+            <div class="col-12 col-sm-6 text-center text-sm-start">
+                &copy; <a href="#">Elegantpurse</a>, All Right Reserved.
+            </div>
+            <div class="col-12 col-sm-6 text-center text-sm-end">
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                Designed By <a href="https://htmlcodex.com">Thintry</a>
+                </br>
 
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid pt-4 px-4 fixed-bottom">
-        <div class="bg-light rounded-top p-4">
-            <div class="row">
-                <div class="col-12 col-sm-6 text-center text-sm-start">
-                    &copy; <a href="#">Elegantpurse</a>, All Right Reserved.
-                </div>
-                <div class="col-12 col-sm-6 text-center text-sm-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://htmlcodex.com">Thintry</a>
-                    </br>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
 </div>
 <!-- Content End -->
 

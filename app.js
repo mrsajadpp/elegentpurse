@@ -36,6 +36,10 @@ app.engine('hbs', handlebars.engine({ extname: 'hbs', defaultLayout: 'layout', l
 app.use(session({ secret: "@tricbskt@#]$" }));
 app.set('view engine', 'hbs');
 
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

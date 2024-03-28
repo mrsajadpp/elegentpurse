@@ -39,8 +39,8 @@ router.get('/product/:prodId', async function (req, res, next) {
   try {
     const prodCollection = db.get().collection('PRODUCT');
     const product = await prodCollection.findOne({ _id: new mongoose.Types.ObjectId(req.params.prodId) });
-    const similar = await prodCollection.find()
-    res.render('user/product', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, product })
+    const similarProducts = await prodCollection.find({ category: product.category }).toArray();
+    res.render('user/product', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, product, similarProducts })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

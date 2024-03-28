@@ -63,6 +63,12 @@
                 required>
 
             </div>
+
+            <div class="mb-3">
+                    <label for="product-Quantity" class="form-label mt-3">Short Description</label>
+                    <input type="text" class="form-control" id="productQty" name="short_des"
+                      placeholder="Short Description" maxlength="35" required>
+                  </div>
             <div class="mb-5">
               <label for="discription" class="form-label">Discription</label>
               <textarea class="form-control" rows="5" name="discription" id="comment" required></textarea>
@@ -135,12 +141,6 @@
                     <label for="product-Quantity" class="form-label mt-3">Quantity</label>
                     <input type="number" class="form-control" id="productQty" name="quantity"
                       placeholder="Type product Quantity here" required>
-                  </div>
-                  <div class="col-6 ms-2">
-                    {{!-- short_des --}}
-                    <label for="product-Quantity" class="form-label mt-3">Short Description</label>
-                    <input type="text" class="form-control" id="productQty" name="short_des"
-                      placeholder="Short Description" required>
                   </div>
                   <div class="mb-5">
                     <button class="form-control" type="submit">Save</button>

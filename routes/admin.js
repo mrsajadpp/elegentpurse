@@ -84,9 +84,11 @@ router.get('/orders', isAdmin, function (req, res, next) {
 
 
 // GET Customers Page
-router.get('/customers', isAdmin, function (req, res, next) {
+router.get('/customers', isAdmin, async function (req, res, next) {
   try {
-    res.render('admin/customers', { title: 'Customers - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true })
+    const userCollection = db.get().collection('USER');
+    const users = await userCollection.find().toArray();
+    res.render('admin/customers', { title: 'Customers - Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, auth: true, users })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

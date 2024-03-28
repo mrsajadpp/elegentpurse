@@ -18,7 +18,7 @@ const isNotAuthorised = (req, res, next) => {
   } catch (error) {
     console.error("Error:", err);
   }
-} 
+}
 
 // GET Home Page
 router.get('/', async function (req, res, next) {
@@ -39,7 +39,11 @@ router.get('/product/:prodId', async function (req, res, next) {
   try {
     const prodCollection = db.get().collection('PRODUCT');
     const product = await prodCollection.findOne({ _id: new mongoose.Types.ObjectId(req.params.prodId) });
-    const similarProducts = await prodCollection.find({ category: product.category }).toArray();
+    // Find similar products excluding the current product
+    const similarProducts = await prodCollection.find({
+      category: product.category,
+      _id: { $ne: product._id } // Exclude current product ID
+    }).toArray();
     res.render('user/product', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, product, similarProducts })
   } catch (err) {
     console.error("Error inserting user:", err);

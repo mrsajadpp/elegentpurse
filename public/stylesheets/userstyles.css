@@ -560,3 +560,9 @@ a:hover {
   border: 2px solid #000;
   border-radius: 3px;
 }
+
+@media (min-width: 768px) {
+  .buttons {
+      display: none;
+  }
+}

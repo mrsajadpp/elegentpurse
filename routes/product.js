@@ -45,7 +45,8 @@ router.post('/add', isAdmin, async function (req, res, next) {
     const prodCollection = db.get().collection('PRODUCT');
     console.log(req.body);
     const newProd = {
-      name: req.body.name,
+      name: req.body.name.toUpperCase(),
+      short_des: req.body.short_des,
       description: req.body.discription,
       price: req.body.price,
       sale_price: req.body.sale_price,

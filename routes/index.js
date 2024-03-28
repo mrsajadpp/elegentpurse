@@ -1,5 +1,6 @@
 var express = require('express');
 let db = require('../db/config');
+let mongoose = require('mongoose');
 
 var router = express.Router();
 
@@ -36,7 +37,9 @@ router.get('/', async function (req, res, next) {
 // GET Product Page
 router.get('/product/:prodId', async function (req, res, next) {
   try {
-    res.render('user/product', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false })
+    const prodCollection = db.get().collection('PRODUCT');
+    const product = await prodCollection.findOne({ _id: new mongoose.Types.ObjectId(req.params.prodId) });
+    res.render('user/product', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, product })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });

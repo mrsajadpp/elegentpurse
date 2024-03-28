@@ -102,13 +102,13 @@
                 <div class="container d-flex">
                   <div class="col-6 me-2">
                     <label for="product-rice" class="form-label">Base Price</label>
-                    <input type="text" class="form-control" id="productPrice" name="price"
+                    <input type="number" class="form-control" id="productPrice" name="price"
                       placeholder="$ Type Base price name here" required>
 
                   </div>
                   <div class="col-6 me-2">
                     <label for="product-rice" class="form-label">Sale Price</label>
-                    <input type="text" class="form-control" id="productPrice" name="sale_price"
+                    <input type="number" class="form-control" id="productPrice" name="sale_price"
                       placeholder="$ Type Sale price name here" required>
 
                   </div>
@@ -116,7 +116,7 @@
                 <div class="container d-flex">
                   <div class="col-6 ms-2">
                     <label for="product-diacountPercentage" class="form-label mt-3">Discount Percentage</label>
-                    <input type="text" name="discount_percentage" class="form-control" id="discount"
+                    <input type="number" name="discount_percentage" class="form-control" id="discount"
                       placeholder="Discount Percentage" required>
 
                   </div>
@@ -128,13 +128,22 @@
                 <div class="container d-flex">
                   <div class="col-6 me-2">
                     <label for="product-sku" class="form-label mt-3">SKU</label>
-                    <input type="text" class="form-control" id="product-SKU" name="SKU"
+                    <input type="number" class="form-control" id="product-SKU" name="SKU"
                       placeholder="Type product SKU here" required>
                   </div>
                   <div class="col-6 ms-2">
                     <label for="product-Quantity" class="form-label mt-3">Quantity</label>
-                    <input type="text" class="form-control" id="productQty" name="quantity"
+                    <input type="number" class="form-control" id="productQty" name="quantity"
                       placeholder="Type product Quantity here" required>
+                  </div>
+                  <div class="col-6 ms-2">
+                    {{!-- short_des --}}
+                    <label for="product-Quantity" class="form-label mt-3">Short Description</label>
+                    <input type="text" class="form-control" id="productQty" name="short_des"
+                      placeholder="Short Description" required>
+                  </div>
+                  <div class="mb-5">
+                    <button class="form-control" type="submit">Save</button>
                   </div>
                 </div>
               </div>
@@ -173,9 +182,6 @@
               </select>
 
             </div>
-          </div>
-          <div class="mb-5">
-            <button class="form-control" type="submit">Save</button>
           </div>
 
     </form>

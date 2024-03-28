@@ -24,7 +24,9 @@ router.get('/', async function (req, res, next) {
   try {
     const catCollection = db.get().collection('CATEGORY');
     const categories = await catCollection.find().toArray();
-    res.render('user/index', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, categories })
+    const prodCollection = db.get().collection('PRODUCT');
+    const products = await prodCollection.find().toArray();
+    res.render('user/index', { title: 'Elegentpurse', admin: req.session.user ? req.session.user.admin : false, user: req.session.user ? req.session.user : false, categories, products })
   } catch (err) {
     console.error("Error inserting user:", err);
     res.status(500).json({ error: "Internal server error" });
